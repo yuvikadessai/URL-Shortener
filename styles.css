@@ -5,11 +5,9 @@ body {
     text-align: center;
     background-color: #f0f2f5; /* subtle background */
 }
-
 h1 {
     margin-top:300px;
 }
-
 input {
     display: block;           /* makes input take its own line */
     width: 80%;
@@ -19,7 +17,6 @@ input {
     border-radius: 5px;
     font-size: 16px;
 }
-
 button {
     display: block;           /* button on its own line */
     width: 50%;
@@ -32,11 +29,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-
 button:hover {
     background-color: #0056b3;
 }
-
 p#result {
     margin-top: 20px;
     font-size: 16px;
