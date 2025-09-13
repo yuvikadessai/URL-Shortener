@@ -10,10 +10,10 @@ async function shortenUrl() {
         });
 
         if (!response.ok) {
-            // Read text instead of JSON to debug
             const text = await response.text();
             throw new Error(`Server error: ${response.status} - ${text}`);
         }
+
         const data = await response.json();
         const result = document.getElementById("result");
 
