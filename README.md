@@ -29,4 +29,3 @@ This project allows users to enter a long URL and get a unique short link. When 
 
 ---
 
-## 📂 Project Structure
