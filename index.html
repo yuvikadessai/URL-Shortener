@@ -7,13 +7,12 @@
     <link href="styles.css" rel="stylesheet">
 </head>
 <body>
-    <form class="form-container">
-    <h1>URL Shortener</h1>
-    <input type="url" id="urlInput" placeholder="Enter URL" required>
-    <button onclick="shortenUrl()">Shorten</button>
-    </form>
-    <p id="result"></p>
-
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <input type="url" id="urlInput" placeholder="Enter URL" required>
+        <button type="button" onclick="shortenUrl()">Shorten</button>
+        <p id="result"></p>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>
