@@ -1,5 +1,7 @@
 async function shortenUrl() {
     const url = document.getElementById("urlInput").value;
+    const result = document.getElementById("result"); 
+    
     if (!url) return alert("Please enter a URL");
 
     try {
@@ -15,7 +17,6 @@ async function shortenUrl() {
         }
 
         const data = await response.json();
-        const result = document.getElementById("result");
 
         if (data.error) {
             result.innerText = data.error;
@@ -24,6 +25,6 @@ async function shortenUrl() {
         }
     } catch (err) {
         console.error(err);
-        document.getElementById("result").innerText = "Something went wrong!";
+        result.innerText = "Something went wrong!";
     }
 }
