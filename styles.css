@@ -1,50 +1,332 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: Arial, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f2f5;
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #01011b 0%, #280471 50%, #3f2987 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Animated background gradient */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Floating geometric shapes */
+body::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
 }
 
 .container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    text-align: center;
-    width: 350px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
-    margin-bottom: 20px;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: titlePulse 3s ease-in-out infinite;
 }
 
-input, button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 16px;
+@keyframes titlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
 
+/* Crazy decorative elements around title */
+h1::before {
+  content: "🔗";
+  position: absolute;
+  left: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+h1::after {
+  content: "✨";
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  animation: bounce 2s ease-in-out infinite 1s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    transform: translateY(-70%) scale(1.2);
+  }
+}
+
+/* Input field styling */
+#urlInput {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+#urlInput::placeholder {
+  color: #9ca3af;
+  font-weight: 400;
+}
+
+#urlInput:focus {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Button styling */
 button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background: linear-gradient(135deg, #25246e 0%, #5e2d89 100%);
+  color: white;
+  border: none;
+  padding: 1.5rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-family: "DM Sans", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+/* Button hover effects */
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+button:hover::before {
+  left: 100%;
 }
 
 button:hover {
-    background-color: #0056b3;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(5, 0, 19, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #25246e 0%, #5e2d89 100%);
 }
 
-p#result {
-    margin-top: 20px;
-    word-break: break-word;
+button:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(27, 12, 234, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Result display */
+#result {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  color: #4b5563;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+#result:not(:empty) {
+  animation: resultAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-color: rgba(234, 88, 12, 0.3);
+}
+
+@keyframes resultAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Success state for result */
+#result.success {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border-color: #10b981;
+  color: #065f46;
+  font-weight: 600;
+}
+
+/* Floating particles */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: particleFloat 8s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1::before,
+  h1::after {
+    display: none;
+  }
+
+  #urlInput {
+    padding: 1.2rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 1.2rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Add some crazy hover effects for the whole container */
+.container:hover {
+  animation: containerPulse 2s ease-in-out infinite;
+}
+
+@keyframes containerPulse {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+/* Loading state for button */
+button.loading {
+  pointer-events: none;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+button.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
