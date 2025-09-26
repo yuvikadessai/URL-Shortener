@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/yuvikadessai/URL-Shortener/issues"
   },
-  "homepage": "https://github.com/yuvikadessai/URL-Shortener#readme"
+  "homepage": "https://github.com/yuvikadessai/URL-Shortener#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
