@@ -1,0 +1,21 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "A simple **URL Shortener web application** built using **Node.js, Express, and MySQL**.   This project allows users to enter a long URL and get a unique short link. When someone visits the short link, they are automatically redirected to the original URL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuvikadessai/URL-Shortener.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuvikadessai/URL-Shortener/issues"
+  },
+  "homepage": "https://github.com/yuvikadessai/URL-Shortener#readme"
+}
